@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+  <title>Megan's Task List</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+  <nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Megan's Task List</a>
+      <ul class="right hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
+  <div id="app" class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br>
+      <br>
+      <h1 class="header center orange-text">Girl, You got stuff to do!</h1>
+      <div class="row center">
+        <ul class="collection with-header">
+          <li class="collection-header">
+            <h4>To Do's</h4>
+          </li>
+          <li class="collection-item" v-for="item in tasks.items" v-if="item.completed == false">{{item.taskName}} <a v-on:click="completeThis(item.id)" class="secondary-content" href="#"><i class="material-icons">check</i></a></li>
+        </ul>
+      </div>
+      <br>
+      <br>
+
+      <div class="fixed-action-btn horizontal">
+        <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+        <ul>
+          <li><a href="#modal1" class="btn-floating pink modal-trigger btn"><i class="material-icons">add</i></a></li>
+          <li><a class="btn-floating light-blue modal-trigger btn"><i class="material-icons">save</i></a></li>
+          <li><a href="#modal3" class="btn-floating green modal-trigger btn"><i class="material-icons">folder_open</i></a></li>
+          <li><a href="#modal2" class="btn-floating blue modal-trigger btn"><i class="material-icons">delete_forever</i></a></li>
+        </ul>
+      </div>
+
+      <!-- Add task-->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Add A Task</h4>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="taskPrompt" type="text" class="validate">
+              <label class="active" for="taskPromt">Task Description</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button v-on:click="addTask" class="modal-action modal-close waves-effect waves-green btn-flat">Add</button>
+        </div>
+      </div>
+    </div>
+    <!--Delete all -->
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <h4>Delete All</h4>
+        <p>Are you sure you would like to delete all?</p>
+      </div>
+      <div class="modal-footer">
+        <button v-on:click="deleteAll" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</button>
+      </div>
+    </div>
+    <!-- Open -->
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <h4>Open A Tasklist</h4>
+        <div class="row">
+          <div class="input-field col s12">
+            <form action="#">
+              <div class="file-field input-field">
+                <div class="btn">
+                  <span>File</span>
+                  <input id="openFileName" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                  <input class="file-path validate" type="text">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="openFileButton" class="modal-action modal-close waves-effect waves-green btn-flat">Add</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <!--  Scripts-->
+
+  <!-- Path of the materialize.js file -->
+  <script src="js/hammer.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script>
+    $("document").ready(function () {
+      $(".button-collapse").sideNav();
+      $('.modal').modal();
+    });
+  </script>
+</body>
+
+</html>
