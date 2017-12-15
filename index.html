@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
+  <nav class="teal lighten-1" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="#" class="brand-logo">Megan's Task List</a>
       <ul class="right hide-on-med-and-down">
@@ -24,7 +24,7 @@
     <div class="container">
       <br>
       <br>
-      <h1 class="header center orange-text">Girl, You got stuff to do!</h1>
+      <h1 class="header center indigo-text">Girl, You got stuff to do!</h1>
       <div class="row center">
         <ul class="collection with-header">
           <li class="collection-header">
@@ -35,16 +35,16 @@
       </div>
       <br>
       <br>
-
+<!-- Setting up modals-->
       <div class="fixed-action-btn horizontal">
-        <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
+        <a class="btn-floating btn-large">
+      <i class="large material-icons">build</i>
     </a>
         <ul>
-          <li><a href="#modal1" class="btn-floating pink modal-trigger btn"><i class="material-icons">add</i></a></li>
-          <li><a class="btn-floating light-blue modal-trigger btn"><i class="material-icons">save</i></a></li>
-          <li><a href="#modal3" class="btn-floating green modal-trigger btn"><i class="material-icons">folder_open</i></a></li>
-          <li><a href="#modal2" class="btn-floating blue modal-trigger btn"><i class="material-icons">delete_forever</i></a></li>
+          <li><a href="#modal1" class="btn-floating modal-trigger btn"><i class="material-icons">add</i></a></li>
+          <li><a class="btn-floating light-coral modal-trigger btn"><i class="material-icons">save</i></a></li>
+          <li><a href="#modal3" class="btn-floating modal-trigger btn"><i class="material-icons">folder_open</i></a></li>
+          <li><a href="#modal2" class="btn-floating modal-trigger btn"><i class="material-icons">delete_forever</i></a></li>
         </ul>
       </div>
 
@@ -54,7 +54,7 @@
           <h4>Add A Task</h4>
           <div class="row">
             <div class="input-field col s12">
-              <input id="taskPrompt" type="text" class="validate">
+              <input id="taskPrompt" type="text" value = "Lets do stuff!" class="validate">
               <label class="active" for="taskPromt">Task Description</label>
             </div>
           </div>
@@ -98,16 +98,19 @@
         <button id="openFileButton" class="modal-action modal-close waves-effect waves-green btn-flat">Add</button>
       </div>
     </div>
+    <!--Save-->
+    <!-- I will be honest I had a lot of issues wrapping my head around this project especially this section. 
+      I ran out of time unfortanately.-->
   </div>
+  <!-- Jquery is installed via npm bacause the CDN was not wanting to play nicely-->
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
   <script src="script.js"></script>
   <!--  Scripts-->
 
   <!-- Path of the materialize.js file -->
   <script src="js/hammer.min.js"></script>
   <script src="js/materialize.js"></script>
+  <!--setup modals-->
   <script>
     $("document").ready(function () {
       $(".button-collapse").sideNav();
